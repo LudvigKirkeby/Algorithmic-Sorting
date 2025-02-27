@@ -8,6 +8,8 @@ public class Main {
         ComparingAndExchanging compare = new ComparingAndExchanging();
         Insertion insertion = new Insertion();
         Selection selection = new Selection();
+        Quick quick = new Quick();
+
         Merge merge = new Merge();
         boolean consoleoutput = false;
         int linecount = 0;
@@ -72,6 +74,8 @@ public class Main {
         bw.newLine();
         bw.write("3. Merge Sort");
         bw.newLine();
+        bw.write("4. Quick Sort");
+        bw.newLine();
         bw.flush();
 
         input = br.readLine();
@@ -86,6 +90,9 @@ public class Main {
             case "3":
                 merge.sort(inputarray);
                 break;
+             case "4":
+                 quick.sort(inputarray);
+                 break;
         }
         double end = System.nanoTime();
 
