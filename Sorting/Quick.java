@@ -1,4 +1,6 @@
-package Kattis.Sorting;
+package Algorithmic-Sorting.Sorting;
+
+import java.util.Random;
 
 public class Quick extends ComparingAndExchanging{
 
@@ -13,32 +15,31 @@ public class Quick extends ComparingAndExchanging{
             return;
         }
 
-        int pivotIndex = new Random().nextInt(high - low) + low;
-
-        partition(a, low, high, pivotIndex);
-
-        sort(a, low, lp - 1);
-        sort(a, lp + 1, high);
-    }
-
-    private void partition(Comparable[] a, int low, int high, int pivotIndex) {
+        int pivotIndex = new Random().nextInt(high - low + 1) + low;
         Comparable pivot = a[pivotIndex];
         super.exchange(a, pivotIndex, high);
-        Comparable lp = a[low];
-        Comparable rp = a[high];
+        int lp = low;
+        int rp = high - 1;
 
-        while (lp < rp) {
-            while (array[lp] <= pivot && lp < rp) {
+        while (lp <= rp) {
+            while (lp <= rp && a[lp].compareTo(pivot) < 0) {
                 lp++;
             }
 
-            while (array[rp] >= pivot && lp < rp) {
+            while (lp <= rp && a[rp].compareTo(pivot) > 0) {
                 rp--;
             }
 
-            super.exchange(a, lp, rp);
+            if (lp <= rp) {
+                super.exchange(a, lp, rp);
+                lp++;
+                rp--;
+            }
         }
+
         super.exchange(a, lp, high);
-        return lp;
+
+        sort(a, low, rp);
+        sort(a, lp, high);
     }
 }

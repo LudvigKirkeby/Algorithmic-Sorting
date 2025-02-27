@@ -1,4 +1,4 @@
-package Kattis.Sorting;
+package Algorithmic-Sorting.Sorting;
 
 public class Merge {
 

@@ -1,4 +1,4 @@
-package Kattis.Sorting;
+package Algorithmic-Sorting.Sorting;
 
 import java.io.*;
 
