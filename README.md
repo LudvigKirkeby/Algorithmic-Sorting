@@ -1,0 +1,1 @@
+In order to sort special cases, like a Deck of Cards or Grades, you have to create a new class for such, implement the Comparable Interface and override CompareTo. A more user-friendly version of this is planned for the future.
